@@ -16,4 +16,4 @@ Schedule::call(function () {
     foreach ($tasks as $task) {
         Mail::to($task->user->email)->send(new TaskReminderMail($task));
     }
-})->everyMinute();
+})->dailyAt('09:00');
